@@ -1,0 +1,72 @@
+{
+  "borrower_name": "Sba PPP Loan Forgiveness Test",
+  "etran_loan": {
+    "bank_notional_amount": "1.00",
+    "sba_number": "4008437204",
+    "loan_number": "13872711",
+    "entity_name": "Salmon Falls Nursery, Inc",
+    "ein": "201569741",
+    "funding_date": "2020-06-28",
+    "forgive_eidl_amount": "1.00",
+    "forgive_eidl_application_number": 0,
+    "forgive_payroll": "6.00",
+    "forgive_rent": "1.00",
+    "forgive_utilities": "1.00",
+    "forgive_mortgage": "1.00",
+    "address1": "string",
+    "address2": "string",
+    "dba_name": "string",
+    "phone_number": "string",
+    "assign_to_user": null,
+    "forgive_fte_at_loan_application": 0,
+    "updated": "06/28/2020",
+    "demographics": [
+      {
+        "name": "abc",
+        "position": "xyz",
+        "veteran_status": "1",
+        "gender": "X",
+        "ethnicity": "X",
+        "races": [
+          {
+            "race": "X"
+          }
+        ]
+      }
+    ],
+    "forgive_line_6_3508_or_line_5_3508ez": "1.00",
+    "forgive_modified_total": "1.00",
+    "forgive_payroll_cost_60_percent_requirement": "1.00",
+    "forgive_amount": "1.00",
+    "forgive_fte_at_forgiveness_application": 0,
+    "forgive_schedule_a_line_1": "1.00",
+    "forgive_schedule_a_line_2": "1.00",
+    "forgive_schedule_a_line_3_checkbox": true,
+    "forgive_schedule_a_line_3": "0.00",
+    "forgive_schedule_a_line_4": "1.00",
+    "forgive_schedule_a_line_5": "1.00",
+    "forgive_schedule_a_line_6": "1.00",
+    "forgive_schedule_a_line_7": "1.00",
+    "forgive_schedule_a_line_8": "1.00",
+    "forgive_schedule_a_line_9": "1.00",
+    "forgive_schedule_a_line_10": "6.00",
+    "forgive_schedule_a_line_10_checkbox": true,
+    "forgive_schedule_a_line_11": "1.00",
+    "forgive_schedule_a_line_12": "2.00",
+    "forgive_schedule_a_line_13": "1.00",
+    "forgive_covered_period_from": "2020-06-28",
+    "forgive_covered_period_to": "2020-06-28",
+    "forgive_alternate_covered_period_from": "2020-06-28",
+    "forgive_alternate_covered_period_to": "2020-06-28",
+    "forgive_2_million": true,
+    "forgive_payroll_schedule": "string",
+    "primary_email": "user@example.com",
+    "primary_name": "string",
+    "ez_form": false,
+    "no_employees": false,
+    "no_reduction_in_employees": false,
+    "no_reduction_in_employees_and_covid_impact": false
+  },
+  "created": "06/28/2020",
+  "assigned_to_user": " "
+}

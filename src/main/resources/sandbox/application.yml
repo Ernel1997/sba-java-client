@@ -1,0 +1,24 @@
+server:
+  port: ${application.port:9091}
+  servlet:
+    context-path: /sandbox
+  
+sba:
+  api-token: <<API_KEY>>
+  vendor-key: <<VENDOR_KEY>>
+  loan-forgiveness:
+    url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_forgiveness_requests/
+  loan-documents:
+    url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_documents/
+  loan-document-types:
+    url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_document_types/
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - loggers
+  endpoint:
+    loggers:
+      enabled: true
