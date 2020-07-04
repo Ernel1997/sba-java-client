@@ -18,7 +18,7 @@ Clone repository using SourceTree or Git Bash.
 
 	$git clone https://github.com/UsSbaForgiveness/sba-java-client.git
 	
-## Step 1: Submit Loan Forgiveness Request
+## Use Case 1: Submit Loan Forgiveness Request
 
 	# POST API Call using SbaLoanForgivenessService Service and SbaPPPLoanForgiveness Request.
 	
@@ -34,7 +34,7 @@ Clone repository using SourceTree or Git Bash.
 	If you are uploading the documents immediately after Step 1, Response object from Step 1 contains all the information needed so please skip Step 2. 
 	and continue with Step 3.
 		
-## Step 2: Retrieve Loan Forgiveness Request Status and detail
+## Use Case 2: Retrieve Loan Forgiveness Request Status and detail
 
 	# This is a GET API Call to retrieve Sba PPP Loan Forgiveness details submitted in Step 1.
 	
@@ -43,7 +43,7 @@ Clone repository using SourceTree or Git Bash.
 		
 		Response SbaPPPLoanForgivenessStatusResponse contains all the requests submitted as part of the Loan Forgiveness Process.
 
-## Step 3: Upload Supporting Documentation for a Loan Forgiveness Request
+## Use Case 3: Upload Supporting Documentation for a Loan Forgiveness Request
 
 	# To upload the documents, 
 		a. Need SbaPPPLoanForgiveness Details (Details can be from Step 1 or Step 2)
