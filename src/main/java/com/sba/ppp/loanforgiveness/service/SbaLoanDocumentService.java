@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sba.ppp.loanforgiveness.domain.LoanDocument;
+import com.sba.ppp.loanforgiveness.domain.LoanDocumentType;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanDocumentTypeResponse;
 import com.sba.ppp.loanforgiveness.restclient.SbaRestApiClient;
 
@@ -34,7 +35,12 @@ public class SbaLoanDocumentService {
 		return sbaRestApiClient.getSbaLoanDocumentTypes(reqParams);
 		
 	}
+	
+	public LoanDocumentType getDocumentTypeById(Integer id) throws IOException {
+		log.info("Retreiving Sba Loan Document Type by Id: {}", id);
+		return sbaRestApiClient.getSbaLoanDocumentTypeById(id);
 		
+	}
 
 
 }

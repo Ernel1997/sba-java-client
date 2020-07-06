@@ -1,6 +1,5 @@
 package com.sba.ppp.loanforgiveness.domain;
 
-import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -18,9 +17,9 @@ public class SbaPPPLoanDocumentTypeResponse {
 
 	 private Integer count;
 	 
-	 private Integer next;
+	 private String next;
 	 
-	 private Integer previous;
+	 private String previous;
 	 
 	 private List<LoanDocumentType> results;
 

@@ -2,12 +2,14 @@ package com.sba.ppp.loanforgiveness.controller;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sba.ppp.loanforgiveness.domain.LoanDocument;
+import com.sba.ppp.loanforgiveness.domain.LoanDocumentType;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanDocumentTypeResponse;
 import com.sba.ppp.loanforgiveness.service.SbaLoanDocumentService;
 
@@ -46,6 +49,22 @@ public class SbaLoanDocumentsController {
 		log.info("Get Loan Document Types.");
 		
 		SbaPPPLoanDocumentTypeResponse documentTypes = sbaLoanDocumentService.getDocumentTypes(reqParams);
+		
+		return ResponseEntity.ok(documentTypes);
+	}
+	
+	@ApiOperation(value = "Get SBA PPP Loan Document Type By Id", response = LoanDocumentType.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = 201, message = "Get SBA PPP Loan Document Types", response = LoanDocumentType.class),
+			@ApiResponse(code = 400, message = "Unauthorized Error"),
+			@ApiResponse(code = 500, message = "Internal Error Occurred", response = LoanDocumentType.class)})
+	@GetMapping(value = "/type/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<LoanDocumentType> getDocumentTypes(
+			@PathVariable(value = "id", required = true) Integer id,
+			@RequestHeader HttpHeaders headers) throws IOException {
+		log.info("Get Loan Document Type by id: {}", id);
+		
+		LoanDocumentType documentTypes = sbaLoanDocumentService.getDocumentTypeById(id);
 		
 		return ResponseEntity.ok(documentTypes);
 	}

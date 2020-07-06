@@ -18,9 +18,9 @@ public class SbaPPPLoanForgivenessStatusResponse {
 
 	 private Integer count;
 	 
-	 private Integer next;
+	 private String next;
 	 
-	 private Integer previous;
+	 private String previous;
 	 
 	 private List<SbaPPPLoanForgiveness> results;
 	 

@@ -1,12 +1,15 @@
 package com.sba.ppp.loanforgiveness.controller;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -54,11 +57,40 @@ public class SbaLoanForgivenessController {
 			@ApiResponse(code = 500, message = "Internal Error Occurred", response = SbaPPPLoanForgivenessStatusResponse.class)})
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SbaPPPLoanForgivenessStatusResponse> getSbaLoanRequestStatus(@RequestParam(value = "page", required = false) Integer page,
+			@RequestParam(value = "sba_number", required = false) String sbaNumber,
 			@RequestHeader HttpHeaders headers) throws IOException {
 		log.info("Get Request Received.");
-		SbaPPPLoanForgivenessStatusResponse response = sbaLoanForgivenessService.getLoanStatus(page);
+		SbaPPPLoanForgivenessStatusResponse response = sbaLoanForgivenessService.getLoanStatus(page, sbaNumber);
 		
 		return ResponseEntity.ok(response);
+	}
+	
+	@ApiOperation(value = "Get SBA PPP Loan Forgiveness Request By slug", response = SbaPPPLoanForgiveness.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = 201, message = "Get SBA PPP Loan Forgiveness Request Status By slug", response = SbaPPPLoanForgiveness.class),
+			@ApiResponse(code = 400, message = "Unauthorized Error"),
+			@ApiResponse(code = 500, message = "Internal Error Occurred", response = SbaPPPLoanForgiveness.class)})
+	@GetMapping(value = "/{slug}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SbaPPPLoanForgiveness> getSbaLoanRequestBySlug(@PathVariable(value = "slug", required = true) UUID slug,
+			@RequestHeader HttpHeaders headers) throws IOException {
+		log.info("Get Request Received.");
+		SbaPPPLoanForgiveness response = sbaLoanForgivenessService.getLoanStatusBySlug(slug);
+		
+		return ResponseEntity.ok(response);
+	}
+	
+	@ApiOperation(value = "Delete SBA PPP Loan Forgiveness Request By Slug")
+	@ApiResponses(value = {
+			@ApiResponse(code = 204, message = "Delete SBA PPP Loan Forgiveness Request By Slug"),
+			@ApiResponse(code = 400, message = "Unauthorized Error"),
+			@ApiResponse(code = 500, message = "Internal Error Occurred")})
+	@DeleteMapping(value = "/{slug}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> deleteSbaLoanRequestStatus(@PathVariable(value = "slug", required = true) UUID slug,
+			@RequestHeader HttpHeaders headers) throws IOException {
+		log.info("Delete Request Received.");
+		sbaLoanForgivenessService.deletePPPLoanRequest(slug);
+		
+		return ResponseEntity.noContent().build();
 	}
 			
 }

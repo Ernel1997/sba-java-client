@@ -1,6 +1,7 @@
 package com.sba.ppp.loanforgiveness.service;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,12 +29,21 @@ public class SbaLoanForgivenessService {
 		
 	}
 	
-	public SbaPPPLoanForgivenessStatusResponse getLoanStatus(Integer page) throws IOException {
+	public SbaPPPLoanForgivenessStatusResponse getLoanStatus(Integer page, String sbaNumber) throws IOException {
 		log.info("Retreiving Sba Loan Forgiveness request");
-		return sbaRestApiClient.getSbaLoanForgiveness(page);
+		return sbaRestApiClient.getSbaLoanForgiveness(page, sbaNumber);
+		
+	}
+	
+	public SbaPPPLoanForgiveness getLoanStatusBySlug(UUID slug) throws IOException {
+		log.info("Retreiving Sba Loan Forgiveness request");
+		return sbaRestApiClient.getSbaLoanForgivenessBySlug(slug);
 		
 	}
 		
-
+	public void deletePPPLoanRequest(UUID slug) throws IOException {
+		log.info("Deleting Sba Loan Forgiveness request for slug: {}", slug);
+		sbaRestApiClient.deleteSbaLoanForgiveness(slug);
+	}
 
 }
