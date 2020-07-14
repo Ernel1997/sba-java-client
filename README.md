@@ -1,6 +1,6 @@
 ## Java Client Code Usage
 
-Please refer swagger #[Swagger URL](https://sandbox.ussbaforgiveness.com/api-docs/) for any clarifications related to API request/response attributes.
+Please refer swagger #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html) for any clarifications related to API request/response attributes.
 
 Java Client code is provided to make it easier to integrate to SBA APIs.
 
@@ -27,7 +27,7 @@ Clone repository using SourceTree or Git Bash.
 		You need to populate SbaPPPLoanForgiveness Request object with all the information provided in the 3508 and 3508EZ documents.
 		Response is same as Request Object "SbaPPPLoanForgiveness" with id and slug are populated.
 		
-		Please refer Document - Field mapping diagrams provided in the Wiki Page: https://github.com/UsSbaForgiveness/SBAPPPForgiveness/wiki
+		Please refer Document - Field mapping diagrams provided in the API Docs Page: https://ussbaforgiveness.github.io/
 
 # Note
 
@@ -50,7 +50,7 @@ Clone repository using SourceTree or Git Bash.
 		b. Need Document Type
 			# To get Document Type make a GET API Call to 
 				SbaLoanDocumentService.getDocumentTypes(Map<String, String> reqParams)
-				* reqParams -> Please refer GET Document Types API Swagger at #[Swagger URL](https://sandbox.ussbaforgiveness.com/api-docs/)
+				* reqParams -> Please refer GET Document Types API Swagger at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html)
 	  
 	  This is a POST API call to upload documents.
 	  	SbaLoanDocumentService.submitLoanDocument(LoanDocument request)
