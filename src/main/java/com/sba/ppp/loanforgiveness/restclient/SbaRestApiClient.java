@@ -20,9 +20,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.google.gson.Gson;
 import com.sba.ppp.loanforgiveness.domain.LoanDocument;
 import com.sba.ppp.loanforgiveness.domain.LoanDocumentType;
+import com.sba.ppp.loanforgiveness.domain.MessageReply;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanDocumentTypeResponse;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgiveness;
+import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgivenessMessage;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgivenessStatusResponse;
+import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanMessagesResponse;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -44,6 +47,12 @@ public class SbaRestApiClient {
     
     @Value("${sba.loan-document-types.url}")
     private String loanDocumentTypesUrl;
+    
+    @Value("${sba.loan-forgiveness-messages.url}")
+    private String loanForgivenessMessagesUrl;
+    
+    @Value("${sba.loan-message-reply.url}")
+    private String loanForgivenessMessageReplyUrl;
     
 	private RestTemplate restTemplate;
 	
@@ -69,6 +78,26 @@ public class SbaRestApiClient {
 		}
 		else {
 			log.error("Error while submitting LoanForgiveness Request");
+		}
+		return response;
+    }
+    
+    public MessageReply updateSbaLoanForgivenessMessageReply(MessageReply request) {
+    	MessageReply response = null;
+    	HttpHeaders headers = getHttpHeaders();
+    	HttpEntity<MessageReply> entity = new HttpEntity<MessageReply>(request, headers); 
+    	        
+    	log.info("Update LoanForgiveness Message Reply");
+    	ResponseEntity<MessageReply> resEntity = restTemplate.exchange(loanForgivenessMessageReplyUrl, 
+    			HttpMethod.PUT, entity, MessageReply.class);
+    	
+    	if (resEntity != null) {
+    		response = resEntity.getBody();
+    		Gson gson = new Gson();
+			log.info("Update LoanForgiveness Message Reply Response: {}", gson.toJson(response));
+		}
+		else {
+			log.error("Error while Updating LoanForgiveness Message Reply");
 		}
 		return response;
     }
@@ -143,6 +172,59 @@ public class SbaRestApiClient {
 		}
 		else {
 			log.error("Error while Retreiving LoanForgiveness Request Status by SBA Number");
+		}
+		return response;
+    }
+    
+    public SbaPPPLoanMessagesResponse getSbaLoanMessagesBySbaNumber(Integer pageNumber, 
+    		String sbaNumber, boolean isComplete) {
+    	SbaPPPLoanMessagesResponse response = null;
+    	HttpHeaders headers = getHttpHeaders();
+    	HttpEntity<String> entity = new HttpEntity<String>(headers); 
+    	
+    	UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(loanForgivenessMessagesUrl);
+    	if (sbaNumber != null) {
+    		uriBuilder.queryParam("sba_number", sbaNumber);
+    	}
+    	else if (pageNumber != null && pageNumber > 0) {
+    		uriBuilder.queryParam("page", pageNumber);
+    	}
+    	
+    	if (isComplete) {
+    		uriBuilder.queryParam("is_complete", isComplete);
+    	}
+    	        
+    	log.info("Retreiving LoanForgiveness Request Messages by SBA Number");
+    	ResponseEntity<SbaPPPLoanMessagesResponse> resEntity = restTemplate.exchange(uriBuilder.toUriString(), 
+    			HttpMethod.GET, entity, SbaPPPLoanMessagesResponse.class);
+    	
+    	if (resEntity != null) {
+    		response = resEntity.getBody();
+    		Gson gson = new Gson();
+			log.info("Retreiving LoanForgiveness Request Messages by SBA Number. Response: {}", gson.toJson(response));
+		}
+		else {
+			log.error("Error while Retreiving LoanForgiveness Request Messages by SBA Number");
+		}
+		return response;
+    }
+    
+    public SbaPPPLoanForgivenessMessage getSbaLoanForgivenessMessagesBySlug(UUID slug) {
+    	SbaPPPLoanForgivenessMessage response = null;
+    	HttpHeaders headers = getHttpHeaders();
+    	HttpEntity<String> entity = new HttpEntity<String>(headers); 
+    	        
+    	log.info("Retreiving LoanForgiveness Message");
+    	ResponseEntity<SbaPPPLoanForgivenessMessage> resEntity = restTemplate.exchange(loanForgivenessMessagesUrl + "/" + slug, 
+    			HttpMethod.GET, entity, SbaPPPLoanForgivenessMessage.class);
+    	
+    	if (resEntity != null) {
+    		response = resEntity.getBody();
+    		Gson gson = new Gson();
+			log.info("Retreiving LoanForgiveness Message. Response: {}", gson.toJson(response));
+		}
+		else {
+			log.error("Error while Retreiving LoanForgiveness Message");
 		}
 		return response;
     }

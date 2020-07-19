@@ -4,14 +4,18 @@ server:
     context-path: /sandbox
   
 sba:
-  api-token: <<API_KEY>>
-  vendor-key: <<VENDOR_KEY>>
+  api-token: {API_KEY}
+  vendor-key: {VENDOR_KEY}
   loan-forgiveness:
     url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_forgiveness_requests/
   loan-documents:
     url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_documents/
   loan-document-types:
     url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_document_types/
+  loan-forgiveness-messages:
+    url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_forgiveness_messages/
+  loan-message-reply:
+    url: https://sandbox.ussbaforgiveness.com/api/ppp_loan_forgiveness_message_reply/
     
 management:
   endpoints:
