@@ -37,7 +37,7 @@ Please refer Document - Field mapping diagrams provided in the API Docs Page: ht
 
 reqParams -> Please refer GET Document Types API Swagger at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html)
 	  
-### Use Case 3: Upload Supporting Documentation for a Loan Forgiveness Request ###
+### Step 3: Upload Supporting Documentation for a Loan Forgiveness Request ###
 
 To upload the documents, 
   a. Need SbaPPPLoanForgiveness Details (Details can be from Step 1)
