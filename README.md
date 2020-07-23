@@ -29,7 +29,9 @@ This example is part of a sample [Use Case 1](https://ussbaforgiveness.github.io
 You need to populate SbaPPPLoanForgiveness Request object with all the information provided in the 3508 and 3508EZ documents.
 Response is same as Request Object "SbaPPPLoanForgiveness" with id and slug are populated.
 
-Please refer Document - Field mapping diagrams provided in the API Docs Page: https://ussbaforgiveness.github.io/
+Please refer Document - Field mapping diagrams
+- [3508](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508/Form-3508-Mapping-of-PDF-Form-to-API-Elements.html)
+- [3508EZ](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508EZ/Form-3508EZ-Mapping-of-PDF-Form-to-API-Elements.html)
 
 ### Step 2: Retrieve the document types required for uploading the documents ###
 
@@ -39,7 +41,7 @@ This example is part of a sample [Use Case 4](https://ussbaforgiveness.github.io
 
 `SbaLoanDocumentService.getDocumentTypes(Map<String, String> reqParams)`
 
-reqParams -> Please refer GET Document Types API Swagger at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html)
+reqParams -> Please refer to [GET Document Types API](https://ussbaforgiveness.github.io/API-Dictionary.html)
 	  
 ### Step 3: Upload Supporting Documentation for a Loan Forgiveness Request ###
 
@@ -52,7 +54,7 @@ To upload the documents,
 This is a POST API call to upload documents.
 `SbaLoanDocumentService.submitLoanDocument(LoanDocument request)`
 
-Please refer Upload Forgiveness Document Rest API at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html#3-upload-forgiveness-documents)
+Please refer to [Upload Forgiveness Document API](https://ussbaforgiveness.github.io/API-Dictionary.html#3-upload-forgiveness-documents)
 
 ### Step 4: Retrieve Loan Forgiveness Request Status and detail ###
 
@@ -64,7 +66,7 @@ _page_ is a query parameter ex: 1,2 etc
 		
 Response `SbaPPPLoanForgivenessStatusResponse` contains all the requests submitted as part of the Loan Forgiveness Process.
 
-Please refer Retrieve Forgiveness Request Rest API at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html#6-get-forgiveness-request-details-using-sba-number)
+Please refer to [Retrieve Forgiveness Request API](https://ussbaforgiveness.github.io/API-Dictionary.html#6-get-forgiveness-request-details-using-sba-number)
 
 ### Some more API Samples ###
 
@@ -76,7 +78,7 @@ This example is part of a sample [Use Case 5](https://ussbaforgiveness.github.io
 ```SbaLoanForgivenessMessageService.getSbaLoanMessages(Integer page,String sbaNumber, boolean isComplete)```
 
 Response `SbaPPPLoanMessagesResponse` contains all the messages exchanged between SBA and the lender
-Please refer Get SBA Messages Rest API at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html#8-get-forgiveness-messages)
+Please refer to [Get SBA Messages API](https://ussbaforgiveness.github.io/API-Dictionary.html#8-get-forgiveness-messages)
 
 ### Reply SBA Messages
 ### During review of a Forgiveness request, SBA may require additional information from lender. This API is used by lender to respond back to SBA by attaching requested documents. ###
@@ -85,4 +87,4 @@ This example is part of a sample [Use Case 5](https://ussbaforgiveness.github.io
 
 ```SbaLoanForgivenessMessageService.updateSbaLoanMessageReply(MessageReply request)```
 
-Please refer Reply SBA Messages Rest API at #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html#10-reply-to-sba-message)
+Please refer to [Reply SBA Messages Rest API](https://ussbaforgiveness.github.io/API-Dictionary.html#10-reply-to-sba-message)
