@@ -33,6 +33,8 @@ Please refer Document - Field mapping diagrams
 - [3508](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508/Form-3508-Mapping-of-PDF-Form-to-API-Elements.html)
 - [3508EZ](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508EZ/Form-3508EZ-Mapping-of-PDF-Form-to-API-Elements.html)
 
+Please refer to [Create Forgiveness Request API](https://ussbaforgiveness.github.io/API-Dictionary.html#2-create-forgiveness-request)
+
 ### Step 2: Retrieve the document types required for uploading the documents ###
 
 This example is part of a sample [Use Case 4](https://ussbaforgiveness.github.io/UseCases/usecase4-Get-document-types.html)
