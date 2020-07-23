@@ -29,7 +29,7 @@ This example is part of a sample [Use Case 1](https://ussbaforgiveness.github.io
 You need to populate SbaPPPLoanForgiveness Request object with all the information provided in the 3508 and 3508EZ documents.
 Response is same as Request Object "SbaPPPLoanForgiveness" with id and slug are populated.
 
-Please refer Document - Field mapping diagrams
+Please refer Document - API Field mapping diagrams
 - [3508](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508/Form-3508-Mapping-of-PDF-Form-to-API-Elements.html)
 - [3508EZ](https://ussbaforgiveness.github.io/DocumentToAPIMappingImages/Form3508EZ/Form-3508EZ-Mapping-of-PDF-Form-to-API-Elements.html)
 
