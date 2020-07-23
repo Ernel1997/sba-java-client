@@ -1,6 +1,6 @@
 # Java Client Code Usage
 
-Please refer #[API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html) for any clarifications related to API request/response attributes.
+Please refer [API Dictionary URL](https://ussbaforgiveness.github.io/API-Dictionary.html) for any clarifications related to API request/response attributes.
 
 Java Client code is provided to make it easier to integrate to SBA APIs.
 
@@ -12,7 +12,7 @@ Java Client code is provided to make it easier to integrate to SBA APIs.
 	
 **Usage #3:** Use complete repository as a Spring boot Application for your integration.
 
-## Clone repository
+## Cloning the repository
 
 Clone repository using SourceTree or Git Bash.
 
