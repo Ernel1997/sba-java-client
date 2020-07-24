@@ -72,6 +72,15 @@ Please refer to [Retrieve Forgiveness Request API](https://ussbaforgiveness.gith
 
 ### Some more API Samples ###
 
+### Delete Forgiveness Request ###
+### This API is used for deleting the existing Forgiveness request ###
+
+This example is part of a sample [Use Case 2](https://ussbaforgiveness.github.io/UseCases/usecase2-Re-submission-of-forgiveness-request.html)
+
+```SbaLoanForgivenessService.deletePPPLoanRequest(UUID slug)```
+
+Please refer to [Delete Forgiveness Request](https://ussbaforgiveness.github.io/API-Dictionary.html#7-delete-forgiveness-request)
+
 ### Get SBA Messages
 ### During review of a Forgiveness request, SBA may require additional information from lender. This API is used to retrieve all messages sent by SBA to lender. ###
 
