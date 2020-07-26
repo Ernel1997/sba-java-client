@@ -98,4 +98,4 @@ This example is part of a sample [Use Case 5](https://ussbaforgiveness.github.io
 
 ```SbaLoanForgivenessMessageService.updateSbaLoanMessageReply(MessageReply request)```
 
-Please refer to [Reply SBA Messages Rest API](https://ussbaforgiveness.github.io/API-Dictionary.html#10-reply-to-sba-message)
+Please refer to [Reply SBA Messages Rest API](https://ussbaforgiveness.github.io/API-Dictionary.html#11-reply-to-sba-message)
