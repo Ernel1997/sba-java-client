@@ -24,7 +24,7 @@ public class SbaPPPLoanForgivenessMessage {
 	
 	private boolean is_complete;
 	
-	private String needs_attention;
+	private boolean needs_attention;
 	
 	private List<Message> messages; 
 	

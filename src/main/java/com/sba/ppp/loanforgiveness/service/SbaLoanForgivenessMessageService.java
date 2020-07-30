@@ -37,7 +37,7 @@ public class SbaLoanForgivenessMessageService {
 		
 	}
 	
-	public SbaPPPLoanForgivenessMessage getLoanMessagesBySlug(UUID slug) throws IOException {
+	public SbaPPPLoanMessagesResponse getLoanMessagesBySlug(UUID slug) throws IOException {
 		log.info("Retreiving LoanForgiveness Message");
 		return sbaRestApiClient.getSbaLoanForgivenessMessagesBySlug(slug);
 		

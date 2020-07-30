@@ -87,12 +87,22 @@ public class SbaRestApiClient {
     
     public MessageReply updateSbaLoanForgivenessMessageReply(MessageReply request) {
     	MessageReply response = null;
-    	HttpHeaders headers = getHttpHeaders();
-    	HttpEntity<MessageReply> entity = new HttpEntity<MessageReply>(request, headers); 
+    	HttpHeaders headers = new HttpHeaders();
+		headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+    	headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+    	headers.add(HttpHeaders.AUTHORIZATION, "Token " + apiToken);
+    	headers.add(VENDOR_KEY_HEADER, vendorKey);
+    	
+    	MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+    	body.add("document_name", request.getDocument_name());
+    	body.add("document_type", request.getDocument_type());
+    	body.add("document", new FileSystemResource(request.getFilePathToUpload()));
+    	
+    	HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
     	        
     	log.info("Update LoanForgiveness Message Reply");
-    	ResponseEntity<MessageReply> resEntity = restTemplate.exchange(loanForgivenessMessageReplyUrl, 
-    			HttpMethod.PUT, entity, MessageReply.class);
+    	ResponseEntity<MessageReply> resEntity = restTemplate.exchange(loanForgivenessMessageReplyUrl + request.getSlug(), 
+    			HttpMethod.PUT, requestEntity, MessageReply.class);
     	
     	if (resEntity != null) {
     		response = resEntity.getBody();
@@ -223,14 +233,14 @@ public class SbaRestApiClient {
 		return response;
     }
     
-    public SbaPPPLoanForgivenessMessage getSbaLoanForgivenessMessagesBySlug(UUID slug) {
-    	SbaPPPLoanForgivenessMessage response = null;
+    public SbaPPPLoanMessagesResponse getSbaLoanForgivenessMessagesBySlug(UUID slug) {
+    	SbaPPPLoanMessagesResponse response = null;
     	HttpHeaders headers = getHttpHeaders();
     	HttpEntity<String> entity = new HttpEntity<String>(headers); 
     	        
     	log.info("Retreiving LoanForgiveness Message");
-    	ResponseEntity<SbaPPPLoanForgivenessMessage> resEntity = restTemplate.exchange(loanForgivenessMessagesUrl + "/" + slug, 
-    			HttpMethod.GET, entity, SbaPPPLoanForgivenessMessage.class);
+    	ResponseEntity<SbaPPPLoanMessagesResponse> resEntity = restTemplate.exchange(loanForgivenessMessagesUrl + "/" + slug, 
+    			HttpMethod.GET, entity, SbaPPPLoanMessagesResponse.class);
     	
     	if (resEntity != null) {
     		response = resEntity.getBody();

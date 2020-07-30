@@ -69,16 +69,16 @@ public class SbaLoanForgivenessMessageController {
 		return ResponseEntity.ok(response);
 	}
 	
-	@ApiOperation(value = "Get SBA PPP Loan Forgiveness Messages By slug", response = SbaPPPLoanForgivenessMessage.class)
+	@ApiOperation(value = "Get SBA PPP Loan Forgiveness Messages By slug", response = SbaPPPLoanMessagesResponse.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 201, message = "Get SBA PPP Loan Forgiveness Request Messages By slug", response = SbaPPPLoanForgivenessMessage.class),
+			@ApiResponse(code = 201, message = "Get SBA PPP Loan Forgiveness Request Messages By slug", response = SbaPPPLoanMessagesResponse.class),
 			@ApiResponse(code = 400, message = "Unauthorized Error"),
-			@ApiResponse(code = 500, message = "Internal Error Occurred", response = SbaPPPLoanForgivenessMessage.class)})
-	@GetMapping(value = "/messages/{ticket_slug}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SbaPPPLoanForgivenessMessage> getLoanMessagesBySlug(@PathVariable(value = "ticket_slug", required = true) UUID slug,
+			@ApiResponse(code = 500, message = "Internal Error Occurred", response = SbaPPPLoanMessagesResponse.class)})
+	@GetMapping(value = "/messages/{slug}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SbaPPPLoanMessagesResponse> getLoanMessagesBySlug(@PathVariable(value = "slug", required = true) UUID slug,
 			@RequestHeader HttpHeaders headers) throws IOException {
 		log.info("Get Request Received.");
-		SbaPPPLoanForgivenessMessage response = sbaLoanForgivenessMessageService.getLoanMessagesBySlug(slug);
+		SbaPPPLoanMessagesResponse response = sbaLoanForgivenessMessageService.getLoanMessagesBySlug(slug);
 		
 		return ResponseEntity.ok(response);
 	}
