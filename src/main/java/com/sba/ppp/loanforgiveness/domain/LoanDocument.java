@@ -20,8 +20,6 @@ public class LoanDocument {
 	 
      private String name;
      
-     private String description;
-     
      private ZonedDateTime created_at;
      
      private ZonedDateTime updated_at;
@@ -30,14 +28,10 @@ public class LoanDocument {
      
      private String url;
      
-     private boolean requires_esign;
+     private UUID etran_loan;
      
-     private boolean schedule_a;
+     private Integer document_type;
      
-     private String etran_loan;
-     
-     private LoanDocumentType document_type;
-     
-     private boolean final_3508_document;
+     private String filePathToUpload;
 
 }

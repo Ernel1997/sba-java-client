@@ -26,7 +26,7 @@ public class SbaLoanDocumentService {
 	
 	public LoanDocument submitLoanDocument(LoanDocument request) throws IOException {
 		log.info("Processing Loan Document Submission.");
-		return sbaRestApiClient.invokeSbaLoanDocument(request);
+		return sbaRestApiClient.uploadSbaLoanDocument(request);
 		
 	}
 	

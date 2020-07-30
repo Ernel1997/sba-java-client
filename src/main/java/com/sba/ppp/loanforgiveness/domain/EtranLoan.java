@@ -1,5 +1,6 @@
 package com.sba.ppp.loanforgiveness.domain;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,9 +19,7 @@ public class EtranLoan {
 	
 	private UUID slug;
 	
-	private String etran_notional_amount;
-	
-	private String bank_notional_amount;
+	private BigDecimal bank_notional_amount;
 	
 	private String sba_number;
 	
@@ -28,24 +27,22 @@ public class EtranLoan {
 	
 	private String entity_name;
 	
-	private String application_id;
-	
 	private String ein;
 	
 	// format - yyyy-MM-dd
 	private String funding_date;
 	
-	private String forgive_eidl_amount;
+	private BigDecimal forgive_eidl_amount;
 	
 	private Integer forgive_eidl_application_number;
 	
-	private String forgive_payroll;
+	private BigDecimal forgive_payroll;
 	
-	private String forgive_rent;
+	private BigDecimal forgive_rent;
 	
-	private String forgive_utilities;
+	private BigDecimal forgive_utilities;
 	
-	private String forgive_mortgage;
+	private BigDecimal forgive_mortgage;
 	
 	private String address1;
 	
@@ -60,48 +57,46 @@ public class EtranLoan {
 	private List<Demographics> demographics;
 	
 	private List<LoanDocument> documents;
-	
-	private BankStatus bank_status;
 
-	private String forgive_line_6_3508_or_line_5_3508ez;
+	private BigDecimal forgive_line_6_3508_or_line_5_3508ez;
 	
-	private String forgive_modified_total;
+	private BigDecimal forgive_modified_total;
 	
-	private String forgive_payroll_cost_60_percent_requirement;
+	private BigDecimal forgive_payroll_cost_60_percent_requirement;
 	
-	private String forgive_amount;
+	private BigDecimal forgive_amount;
 	
 	private Integer forgive_fte_at_forgiveness_application;
 	
-	private String forgive_schedule_a_line_1;
+	private BigDecimal forgive_schedule_a_line_1;
 
-	private String forgive_schedule_a_line_2;
+	private BigDecimal forgive_schedule_a_line_2;
 	
 	private boolean forgive_schedule_a_line_3_checkbox;
 	
-	private String forgive_schedule_a_line_3;
+	private BigDecimal forgive_schedule_a_line_3;
 	
-	private String forgive_schedule_a_line_4;
+	private BigDecimal forgive_schedule_a_line_4;
 	
-	private String forgive_schedule_a_line_5;
+	private BigDecimal forgive_schedule_a_line_5;
 	
-	private String forgive_schedule_a_line_6;
+	private BigDecimal forgive_schedule_a_line_6;
 	
-	private String forgive_schedule_a_line_7;
+	private BigDecimal forgive_schedule_a_line_7;
 	
-	private String forgive_schedule_a_line_8;
+	private BigDecimal forgive_schedule_a_line_8;
 	
-	private String forgive_schedule_a_line_9;
+	private BigDecimal forgive_schedule_a_line_9;
 	
-	private String forgive_schedule_a_line_10;
+	private BigDecimal forgive_schedule_a_line_10;
 	
 	private boolean forgive_schedule_a_line_10_checkbox;
 	
-	private String forgive_schedule_a_line_11;
+	private Integer forgive_schedule_a_line_11;
 	
-	private String forgive_schedule_a_line_12;
+	private Integer forgive_schedule_a_line_12;
 	
-	private String forgive_schedule_a_line_13;
+	private Integer forgive_schedule_a_line_13;
 	
 	private String forgive_covered_period_from;
 	
@@ -114,5 +109,19 @@ public class EtranLoan {
 	private boolean forgive_2_million;
 	
 	private String forgive_payroll_schedule;
+	
+	private String primary_email;
+	
+	private String primary_name;
+	
+	private boolean ez_form;
+	
+	private boolean no_reduction_in_employees;
+	
+	private boolean no_reduction_in_employees_and_covid_impact;
+	
+	private boolean forgive_lender_confirmation;
+	
+	private Integer forgive_lender_decision;
 
 }

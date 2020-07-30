@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,7 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MimeTypeUtils;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -102,22 +105,33 @@ public class SbaRestApiClient {
 		return response;
     }
     
-    public LoanDocument invokeSbaLoanDocument(LoanDocument request) {
+    public LoanDocument uploadSbaLoanDocument(LoanDocument request) {    	
     	LoanDocument response = null;
-    	HttpHeaders headers = getHttpHeaders();
-    	HttpEntity<LoanDocument> entity = new HttpEntity<LoanDocument>(request, headers); 
+    	HttpHeaders headers = new HttpHeaders();
+		headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+    	headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+    	headers.add(HttpHeaders.AUTHORIZATION, "Token " + apiToken);
+    	headers.add(VENDOR_KEY_HEADER, vendorKey);
+
+    	MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+    	body.add("name", request.getName());
+    	body.add("document_type", request.getDocument_type());
+    	body.add("etran_loan", request.getEtran_loan().toString());
+    	body.add("document", new FileSystemResource(request.getFilePathToUpload()));
+    	
+    	HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
     	        
-    	log.info("Submitting LoanForgiveness Request");
+    	log.info("Submitting Upload Document Request");
     	ResponseEntity<LoanDocument> resEntity = restTemplate.exchange(loanDocumentsUrl, 
-    			HttpMethod.POST, entity, LoanDocument.class);
+    			HttpMethod.POST, requestEntity, LoanDocument.class);
     	
     	if (resEntity != null) {
     		response = resEntity.getBody();
     		Gson gson = new Gson();
-			log.info("LoanForgiveness Response: {}", gson.toJson(response));
+			log.info("Upload Document Service Response: {}", gson.toJson(response));
 		}
 		else {
-			log.error("Error while submitting LoanForgiveness Request");
+			log.error("Error while Uploading Document");
 		}
 		return response;
     }

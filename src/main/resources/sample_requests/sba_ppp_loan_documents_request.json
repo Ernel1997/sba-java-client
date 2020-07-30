@@ -1,14 +1,6 @@
 {
-  "slug": "e4dd77f4-18a4-428a-a26b-c5e9ed19133a",
-  "name": "testUpload",
-  "created_at": "2020-06-28T19:38:52.009454Z",
-  "updated_at": "2020-06-28T19:38:52.009482Z",
-  "document": "https://lenders-cooperative-sandbox-app.s3.us-gov-west-1.amazonaws.com/media/loan/e4dd77f4-18a4-428a-a26b-c5e9ed19133a/files/testUpload.docx?AWSAccessKeyId=AKIAQ2EGUESVW7SZX5UO&Signature=TZZBJ%2BGKnpvDBvcnvktCLPmkT10%3D&Expires=1593381648",
-  "url": "https://lenders-cooperative-sandbox-app.s3.us-gov-west-1.amazonaws.com/media/loan/e4dd77f4-18a4-428a-a26b-c5e9ed19133a/files/testUpload.docx?AWSAccessKeyId=AKIAQ2EGUESVW7SZX5UO&Signature=TZZBJ%2BGKnpvDBvcnvktCLPmkT10%3D&Expires=1593381648",
-  "etran_loan": "a82c54eb-36f3-460b-ad1d-1c7a6cde4d07",
-  "document_type": {
-    "id": 1,
-    "name": "Payroll",
-    "description": "Payroll Documents"
-  }
+  "name": "Test Upload 123",
+  "filePathToUpload" : "C:/development/fileloc/a9ee038d-ba98-4a41-8d8a-18d29eaf2f5f.pdf",
+  "etran_loan": "455a28c0-0f08-484f-a484-5c215f06b14c",
+  "document_type": 1
 }

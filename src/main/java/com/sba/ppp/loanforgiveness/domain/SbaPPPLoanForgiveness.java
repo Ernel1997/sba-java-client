@@ -15,13 +15,23 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SbaPPPLoanForgiveness {
 	
-	private Integer id;
-	
 	private UUID slug;
 	
 	private String borrower_name;
 	
 	private EtranLoan etran_loan;
+	
+	private String approval_date;
+	
+	private String final_forgive_amount;
+	
+	private String calculated_interest;
+	
+	private String final_forgive_payment;
+	
+	private String final_forgive_payment_date;
+	
+	private String final_forgive_payment_batch;
 	
 }
 
