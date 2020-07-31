@@ -54,9 +54,13 @@ public class EtranLoan {
 
 	private Integer forgive_fte_at_loan_application;
 	
+	private Organization organization;
+	
 	private List<Demographics> demographics;
 	
-	private List<LoanDocument> documents;
+	private String status;
+	
+	private List<Document> documents;
 
 	private BigDecimal forgive_line_6_3508_or_line_5_3508ez;
 	

@@ -21,6 +21,8 @@ public class SbaPPPLoanForgiveness {
 	
 	private EtranLoan etran_loan;
 	
+	private String sba_decision;
+	
 	private String approval_date;
 	
 	private String final_forgive_amount;
@@ -32,6 +34,8 @@ public class SbaPPPLoanForgiveness {
 	private String final_forgive_payment_date;
 	
 	private String final_forgive_payment_batch;
+	
+	private String created;
 	
 }
 

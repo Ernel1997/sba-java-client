@@ -85,8 +85,8 @@ public class SbaRestApiClient {
 		return response;
     }
     
-    public MessageReply updateSbaLoanForgivenessMessageReply(MessageReply request) {
-    	MessageReply response = null;
+    public String updateSbaLoanForgivenessMessageReply(MessageReply request) {
+    	String response = null;
     	HttpHeaders headers = new HttpHeaders();
 		headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
     	headers.setContentType(MediaType.MULTIPART_FORM_DATA);
@@ -96,13 +96,14 @@ public class SbaRestApiClient {
     	MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
     	body.add("document_name", request.getDocument_name());
     	body.add("document_type", request.getDocument_type());
+    	body.add("content", request.getContent());
     	body.add("document", new FileSystemResource(request.getFilePathToUpload()));
     	
     	HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
     	        
     	log.info("Update LoanForgiveness Message Reply");
-    	ResponseEntity<MessageReply> resEntity = restTemplate.exchange(loanForgivenessMessageReplyUrl + request.getSlug(), 
-    			HttpMethod.PUT, requestEntity, MessageReply.class);
+    	ResponseEntity<String> resEntity = restTemplate.exchange(loanForgivenessMessageReplyUrl + request.getSlug().toString() + "/", 
+    			HttpMethod.PUT, requestEntity, String.class);
     	
     	if (resEntity != null) {
     		response = resEntity.getBody();

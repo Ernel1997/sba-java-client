@@ -24,7 +24,7 @@ public class SbaLoanForgivenessMessageService {
 	@Autowired
 	private SbaRestApiClient sbaRestApiClient;
 	
-	public MessageReply updateSbaLoanMessageReply(MessageReply request) throws IOException {
+	public String updateSbaLoanMessageReply(MessageReply request) throws IOException {
 		log.info("Processing Update LoanForgiveness Message Reply");
 		return sbaRestApiClient.updateSbaLoanForgivenessMessageReply(request);
 		

@@ -23,6 +23,8 @@ public class MessageReply {
     
     private String document_name;
     
+    private String content;
+    
     private String filePathToUpload;
 
 }

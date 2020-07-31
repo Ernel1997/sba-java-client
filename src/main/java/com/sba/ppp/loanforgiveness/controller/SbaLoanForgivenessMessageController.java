@@ -39,16 +39,16 @@ public class SbaLoanForgivenessMessageController {
 	@Autowired
 	private SbaLoanForgivenessMessageService sbaLoanForgivenessMessageService;
 
-	@ApiOperation(value = "Update SBA PPP Loan Forgiveness Message reply", response = MessageReply.class)
+	@ApiOperation(value = "Update SBA PPP Loan Forgiveness Message reply", response = String.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 201, message = "Update SBA PPP Loan Forgiveness Message reply", response = MessageReply.class),
+			@ApiResponse(code = 201, message = "Update SBA PPP Loan Forgiveness Message reply", response = String.class),
 			@ApiResponse(code = 400, message = "Unauthorized Error"),
-			@ApiResponse(code = 500, message = "Internal Error Occurred", response = MessageReply.class)})
+			@ApiResponse(code = 500, message = "Internal Error Occurred", response = String.class)})
 	@PutMapping(value = "/message/reply", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<MessageReply> update(@RequestBody MessageReply request,
+	public ResponseEntity<String> update(@RequestBody MessageReply request,
 			@RequestHeader HttpHeaders headers) throws IOException {
 		log.info("Submit Request Received: {}", request);
-		MessageReply response = sbaLoanForgivenessMessageService.updateSbaLoanMessageReply(request);
+		String response = sbaLoanForgivenessMessageService.updateSbaLoanMessageReply(request);
 		
 		return ResponseEntity.ok(response);
 	}
