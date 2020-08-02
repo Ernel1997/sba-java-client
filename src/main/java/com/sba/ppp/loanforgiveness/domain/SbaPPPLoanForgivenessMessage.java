@@ -3,6 +3,8 @@ package com.sba.ppp.loanforgiveness.domain;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +24,7 @@ public class SbaPPPLoanForgivenessMessage {
 	
 	private UUID ticket;
 	
+	@JsonProperty("is_complete")
 	private boolean is_complete;
 	
 	private boolean needs_attention;

@@ -127,5 +127,21 @@ public class EtranLoan {
 	private boolean forgive_lender_confirmation;
 	
 	private Integer forgive_lender_decision;
+	
+	private String sba_decision;
+	
+	private String approval_date;
+	
+	private String final_forgive_amount;
+	
+	private String calculated_interest;
+	
+	private String final_forgive_payment;
+	
+	private String final_forgive_payment_date;
+	
+	private String final_forgive_payment_batch;
+	
+	private BigDecimal final_forgive_amount_with_interest;
 
 }

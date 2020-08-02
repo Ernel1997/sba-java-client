@@ -2,6 +2,9 @@ package com.sba.ppp.loanforgiveness.domain;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,24 +20,12 @@ public class SbaPPPLoanForgiveness {
 	
 	private UUID slug;
 	
+	@JsonInclude(Include.NON_NULL)
 	private String borrower_name;
 	
 	private EtranLoan etran_loan;
 	
-	private String sba_decision;
-	
-	private String approval_date;
-	
-	private String final_forgive_amount;
-	
-	private String calculated_interest;
-	
-	private String final_forgive_payment;
-	
-	private String final_forgive_payment_date;
-	
-	private String final_forgive_payment_batch;
-	
+	@JsonInclude(Include.NON_NULL)
 	private String created;
 	
 }

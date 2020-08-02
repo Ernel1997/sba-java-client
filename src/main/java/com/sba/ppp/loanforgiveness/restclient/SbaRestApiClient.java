@@ -276,11 +276,11 @@ public class SbaRestApiClient {
     
     public void deleteSbaLoanForgiveness(UUID slug) {
     	HttpHeaders headers = getHttpHeaders();
-    	HttpEntity<String> entity = new HttpEntity<String>(headers); 
+    	HttpEntity<String> entity = new HttpEntity<String>(null, headers); 
     	        
     	log.info("Deleting LoanForgiveness Request");
     	
-    	ResponseEntity<Void> resEntity = restTemplate.exchange(loanForgivenessUrl + "/" + slug, 
+    	ResponseEntity<Void> resEntity = restTemplate.exchange(loanForgivenessUrl + "/" + slug.toString() +"/", 
     			HttpMethod.DELETE, entity, Void.class);
     	
     	if (resEntity != null) {

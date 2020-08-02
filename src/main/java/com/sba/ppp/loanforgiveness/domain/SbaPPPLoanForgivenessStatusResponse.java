@@ -23,8 +23,5 @@ public class SbaPPPLoanForgivenessStatusResponse {
 	 private String previous;
 	 
 	 private List<SbaPPPLoanForgiveness> results;
-	 
-	 private Date created;
-	 
-	 private String assigned_to_user;
+
 }
