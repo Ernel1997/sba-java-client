@@ -33,7 +33,7 @@ For running the project, just execute the java application jar
 java -jar sba-java-client-master/target/sba-ppp-loan-forgiveness-1.0.jar
 ```
 
-The project is a sample web application. This application runs on port `9091` and URL: `http://localhost:9091/sandbox`.
+The project is a sample Spring Boot web application. This application runs on port `9091` and URL: `http://localhost:9091/sandbox`.
 The complete set of URLs for different operation is part of the `application.yml` file.
 
 
