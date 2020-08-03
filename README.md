@@ -4,6 +4,39 @@ Please refer [API Dictionary URL](https://ussbaforgiveness.github.io/API-Diction
 
 Java Client code is provided to make it easier to integrate to SBA APIs.
 
+## Cloning the repository
+
+Clone repository using SourceTree or Git Bash.
+
+`$git clone https://github.com/UsSbaForgiveness/sba-java-client.git`
+
+## Setting up API Token and Vendor Key
+
+The API-Token and Vendor-key is required for all the operations to be performed in the sandbox/production environment.
+Update the below properties in  `/src/main/resources/sandbox/application.yml` with the api-token and Vendor-key 
+```  
+  api-token: {API_KEY}
+  vendor-key: {VENDOR_KEY}
+  ....
+``` 
+
+## Installation
+
+This is a maven project, so for building the project, browse to the parent directlry /sba-java-client-master and run the below maven command for building the project
+```
+mvn clean install
+```
+
+## For running the project
+For running the project, just execute the java application jar
+```
+java -jar sba-java-client-master/target/sba-ppp-loan-forgiveness-1.0.jar
+```
+
+The project is a sample web application. This application runs on port `9091` and URL: `http://localhost:9091/sandbox`.
+The complete set of URLs for different operation is part of the `application.yml` file.
+
+
 **Usage #1:** Use Services provided in the code to eliminate the complexity of creating Rest Clients to integrate with SBA API's
 > src/main/java/com/sba/ppp/loanforgiveness/service
 		
@@ -12,11 +45,7 @@ Java Client code is provided to make it easier to integrate to SBA APIs.
 	
 **Usage #3:** Use complete repository as a Spring boot Application for your integration.
 
-## Cloning the repository
-
-Clone repository using SourceTree or Git Bash.
-
-`$git clone https://github.com/UsSbaForgiveness/sba-java-client.git`
+## Example steps for a Forgiveness request
 	
 ## Step1: Submit Loan Forgiveness Request
 
