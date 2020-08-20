@@ -1,5 +1,6 @@
 package com.sba.ppp.loanforgiveness.restclient;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -24,9 +25,9 @@ import com.google.gson.Gson;
 import com.sba.ppp.loanforgiveness.domain.LoanDocument;
 import com.sba.ppp.loanforgiveness.domain.LoanDocumentType;
 import com.sba.ppp.loanforgiveness.domain.MessageReply;
+import com.sba.ppp.loanforgiveness.domain.ReplyDocuments;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanDocumentTypeResponse;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgiveness;
-import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgivenessMessage;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanForgivenessStatusResponse;
 import com.sba.ppp.loanforgiveness.domain.SbaPPPLoanMessagesResponse;
 
@@ -92,13 +93,16 @@ public class SbaRestApiClient {
     	headers.setContentType(MediaType.MULTIPART_FORM_DATA);
     	headers.add(HttpHeaders.AUTHORIZATION, "Token " + apiToken);
     	headers.add(VENDOR_KEY_HEADER, vendorKey);
-    	
+    
     	MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
-    	body.add("document_name", request.getDocument_name());
-    	body.add("document_type", request.getDocument_type());
+    	List<ReplyDocuments> docs = request.getReplyDocuments();
+		for (ReplyDocuments replyDocuments : docs) {
+			body.add("document_name", replyDocuments.getDocument_name());
+			body.add("document_type", replyDocuments.getDocument_type());
+			body.add("document", new FileSystemResource(replyDocuments.getFilePathToUpload()));
+		}
     	body.add("content", request.getContent());
-    	body.add("document", new FileSystemResource(request.getFilePathToUpload()));
-    	
+
     	HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
     	        
     	log.info("Update LoanForgiveness Message Reply");

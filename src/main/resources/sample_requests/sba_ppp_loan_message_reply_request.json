@@ -1,7 +1,16 @@
 {
-  "document_name": "Test Upload",
-  "filePathToUpload" : "C:/development/fileloc/a9ee038d-ba98-4a41-8d8a-18d29eaf2f5f.pdf",
-  "slug": "070351f3-6cb7-4b5f-be08-d6f1b2f41aab",
-  "document_type": 1,
-  "content": "Test Content"
+	"slug": "d2c3da90-b9e2-4ea7-808f-16b1143f4456",
+	"replyDocuments": [
+		{
+			"document_type": 1,
+			"document_name": "Test Upload Doc -1 ",
+			"filePathToUpload": "C:/development/fileloc/Payroll.pdf"
+		},
+		{
+			"document_type": 1,
+			"document_name": "Test Upload Document- 2",
+			"filePathToUpload": "C:/development/fileloc/Non-PayrollDoc.pdf"
+		}
+	],
+	"content": "Test Content"
 }
