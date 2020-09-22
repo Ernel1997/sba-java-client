@@ -96,11 +96,11 @@ public class EtranLoan {
 	
 	private boolean forgive_schedule_a_line_10_checkbox;
 	
-	private Integer forgive_schedule_a_line_11;
+	private BigDecimal forgive_schedule_a_line_11;
 	
-	private Integer forgive_schedule_a_line_12;
+	private BigDecimal forgive_schedule_a_line_12;
 	
-	private Integer forgive_schedule_a_line_13;
+	private BigDecimal forgive_schedule_a_line_13;
 	
 	private String forgive_covered_period_from;
 	
