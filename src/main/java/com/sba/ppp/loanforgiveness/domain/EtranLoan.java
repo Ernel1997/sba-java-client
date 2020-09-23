@@ -34,7 +34,7 @@ public class EtranLoan {
 	
 	private BigDecimal forgive_eidl_amount;
 	
-	private Integer forgive_eidl_application_number;
+	private Long forgive_eidl_application_number;
 	
 	private BigDecimal forgive_payroll;
 	
