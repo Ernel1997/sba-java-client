@@ -284,7 +284,7 @@ public class SbaRestApiClient {
     	        
     	log.info("Deleting LoanForgiveness Request");
     	
-    	ResponseEntity<Void> resEntity = restTemplate.exchange(loanForgivenessUrl + "/" + slug.toString() +"/", 
+    	ResponseEntity<Void> resEntity = restTemplate.exchange(loanForgivenessUrl + slug.toString() +"/", 
     			HttpMethod.DELETE, entity, Void.class);
     	
     	if (resEntity != null) {

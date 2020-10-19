@@ -143,5 +143,7 @@ public class EtranLoan {
 	private String final_forgive_payment_batch;
 	
 	private BigDecimal final_forgive_amount_with_interest;
+	
+	private boolean s_form;
 
 }
